@@ -108,6 +108,8 @@ import { add } from 'thirdweb/extensions/farcaster/keyGateway';
 
 export default function AgentPage({ params }: any) {
 
+  const { Canvas } = useQRCode();
+
   const agentContractAddress = params.contract;
   const agentTokenId = params.tokenId;
 

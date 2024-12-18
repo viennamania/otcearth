@@ -1630,18 +1630,31 @@ export default function Index({ params }: any) {
                     height={35}
                     className="rounded-lg"
                   />
-                  <Image
-                    src={
-                      `/logo-${params.chain}.png`
-                    }
-                    alt="Chain"
-                    width={32}
-                    height={32}
-                    className="rounded-lg"
-                  />
                   <div className="text-2xl font-semibold">
                     {Sell_USDT}
                   </div>
+
+                  {seller && (
+                    <div className="text-lg text-zinc-400">
+                      {seller.nickname}
+                    </div>
+                  )}
+
+                  {!seller && (
+                    <div className="flex flex-col gap-2 items-start">
+                      <div className="text-xs text-zinc-400">
+                        판매자 정보가 없습니다
+                      </div>
+                      <button
+                        onClick={() => {
+                          router.push('/' + params.lang + '/' + params.chain + '/profile-settings-tron');
+                        }}
+                        className="text-xs text-zinc-400 underline"
+                      >
+                        판매자 정보 등록하기
+                      </button>
+                    </div>
+                  )}
 
               </div>
 

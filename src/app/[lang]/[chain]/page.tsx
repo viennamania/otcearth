@@ -79,12 +79,10 @@ import GearSetupIcon from "@/components/gearSetupIcon";
 
 import AppBarComponent from "@/components/Appbar/AppBar";
 import { getDictionary } from "../../dictionaries";
-import { parse } from "path";
-import { N } from "ethers";
 
 
 
-
+import { useQRCode } from 'next-qrcode';
 
 
 
@@ -134,6 +132,7 @@ export default function Index({ params }: any) {
   const agentNumber = searchParams.get('tokenId');
 
 
+  const { Canvas } = useQRCode();
 
   //console.log(wallet);
 
@@ -1254,6 +1253,8 @@ export default function Index({ params }: any) {
 
 
 
+
+
                     {/* button for polygon explorer */}
                     {/*
                     {address && !loadingAnimation
@@ -1478,6 +1479,44 @@ export default function Index({ params }: any) {
        
 
                 <div className=" flex flex-col gap-2 justify-center items-center mt-10">
+
+
+
+
+
+                    {/* tronWalletAddress and qrcode for tronWalletAddress */}
+                    <div className="flex flex-row gap-2 items-center">
+                      <p className="text-lg md:text-xl font-semibold text-gray-600">
+                        {tronWalletAddress}
+                      </p>
+                      {/* qr code image */}
+                      <Canvas
+                        text={address}
+                        options={{
+                          //level: 'M',
+                          margin: 2,
+                          scale: 4,
+                          width: 200,
+                          color: {
+                              dark: '#000000FF',
+                              light: '#FFFFFFFF',
+                          },
+                        }}
+                      />
+                    </div>
+                    
+                    {/* copy button */}
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(tronWalletAddress);
+                        toast.success('Address copied to clipboard');
+                      }}
+                      className="text-sm text-blue-500 hover:underline"
+                    >
+                      Copy
+                    </button>
+
+
                   
 
 
