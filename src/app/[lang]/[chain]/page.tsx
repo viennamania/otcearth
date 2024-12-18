@@ -1479,35 +1479,7 @@ export default function Index({ params }: any) {
 
                 <div className=" flex flex-col gap-2 justify-center items-center mt-10">
                   
-                  {/* Go Buy USDT */}
-                  <button
-                    onClick={() => {
-  
 
-                      // redirect to buy USDT page
-                      router.push(
-                        params.chain === "tron" ?
-                        "/" + params.lang + "/" + params.chain + "/buy-tron-usdt"
-                        :
-                        "/" + params.lang + "/" + params.chain + "/buy-usdt"
-                      );
-
-                    }}
-                    className=" w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-                  >
-                    <div className="flex flex-row justify-between items-center gap-2">
-                      <p className="text-lg font-semibold text-white">
-                        구매하기
-                      </p>
-                      <Image
-                        src="/goto-icon.webp"
-                        alt="Go"
-                        width={20}
-                        height={20}
-                      />
-                    </div>
-                    
-                  </button>
 
 
                   {/* Go Buy Order USDT */}
@@ -1804,9 +1776,40 @@ export default function Index({ params }: any) {
 
 
               
-                <div className="grid grid-cols-1 gap-2 mt-4">
+                <div className="grid grid-cols-2 gap-2 mt-4">
 
  
+                   {/* Go Buy USDT */}
+                   <button
+                    onClick={() => {
+  
+
+                      // redirect to buy USDT page
+                      router.push(
+                        params.chain === "tron" ?
+                        "/" + params.lang + "/" + params.chain + "/buy-tron-usdt"
+                        :
+                        "/" + params.lang + "/" + params.chain + "/buy-usdt"
+                      );
+
+                    }}
+                    className=" w-full bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+                  >
+                    <div className="flex flex-row justify-between items-center gap-2">
+                      <p className="text-lg font-semibold text-white">
+                        USDT 구매하기
+                      </p>
+                      <Image
+                        src="/goto-icon.webp"
+                        alt="Go"
+                        width={20}
+                        height={20}
+                      />
+                    </div>
+                    
+                  </button>
+
+
                   <button
                     //disabled={!address}
                     onClick={() => {
@@ -1842,7 +1845,7 @@ export default function Index({ params }: any) {
                   >
                     <div className="flex flex-row justify-between items-center gap-2">
                       <p className="text-lg font-semibold text-white">
-                        판매하기
+                        USDT 판매하기
                       </p>
                       <Image
                         src="/goto-icon.webp"
