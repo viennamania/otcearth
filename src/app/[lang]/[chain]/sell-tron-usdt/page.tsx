@@ -3147,7 +3147,7 @@ export default function Index({ params }: any) {
                             key={index}
                             className={`
 
-                              w-96 xl:w-full h-full
+                              xl:w-full h-full
 
                               bg-black p-4 rounded-md border
                               
@@ -3740,47 +3740,51 @@ export default function Index({ params }: any) {
 
 
                                   {address && item.walletAddress === address && (
-                                    <div className="flex flex-row gap-2">
 
-                                      <input
-                                        disabled={confirmingPayment[index]}
-                                        type="checkbox"
-                                        checked={confirmPaymentCheck[index]}
-                                        onChange={(e) => {
-                                          setConfirmPaymentCheck(
-                                            confirmPaymentCheck.map((item, idx) => {
-                                              if (idx === index) {
-                                                return e.target.checked;
-                                              }
-                                              return item;
-                                            })
-                                          );
-                                        }}
-                                      />
+                                    <div className="flex flex-col gap-2 items-start justify-start">
+                                      <div className="flex flex-row gap-2">
 
-                                      <button
-                                        disabled={confirmingPayment[index] || !confirmPaymentCheck[index]}
-                                        className={`flex flex-row items-center gap-1 text-lg text-white px-2 py-1 rounded-md ${confirmingPayment[index] || !confirmPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
-                                        onClick={() => {
-                                          confirmPayment(
-                                            index,
-                                            item._id,
-                                            paymentAmounts[index]
-                                          );
-                                        }}
-
-                                      >
-
-                                        <Image
-                                          src="/loading.png"
-                                          alt="loading"
-                                          width={16}
-                                          height={16}
-                                          className={confirmingPayment[index] ? 'animate-spin' : 'hidden'}
+                                        <input
+                                          disabled={confirmingPayment[index]}
+                                          type="checkbox"
+                                          checked={confirmPaymentCheck[index]}
+                                          onChange={(e) => {
+                                            setConfirmPaymentCheck(
+                                              confirmPaymentCheck.map((item, idx) => {
+                                                if (idx === index) {
+                                                  return e.target.checked;
+                                                }
+                                                return item;
+                                              })
+                                            );
+                                          }}
                                         />
-                                        <span>{Confirm_Payment}</span>
 
-                                      </button>
+                                        <button
+                                          disabled={confirmingPayment[index] || !confirmPaymentCheck[index]}
+                                          className={`flex flex-row items-center gap-1 text-lg text-white px-2 py-1 rounded-md ${confirmingPayment[index] || !confirmPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                          onClick={() => {
+                                            confirmPayment(
+                                              index,
+                                              item._id,
+                                              paymentAmounts[index]
+                                            );
+                                          }}
+
+                                        >
+
+                                          <Image
+                                            src="/loading.png"
+                                            alt="loading"
+                                            width={16}
+                                            height={16}
+                                            className={confirmingPayment[index] ? 'animate-spin' : 'hidden'}
+                                          />
+                                          <span>{Confirm_Payment}</span>
+
+                                        </button>
+
+                                      </div>
 
                                       <span className="text-sm text-zinc-400">
                                         입금 확인 후, 결제 확인 버튼을 눌러주세요. 에스크로되어 있는 USDT가 구매자에게 전달됩니다.
