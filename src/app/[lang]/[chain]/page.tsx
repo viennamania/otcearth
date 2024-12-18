@@ -997,6 +997,7 @@ export default function Index({ params }: any) {
         <div className="w-full flex flex-row gap-2 justify-between items-center">
           
   
+            {/*
             <div className=" flex flex-col xl:flex-row gap-2 justify-start items-start">
 
               {address && userType === "telegram" && (
@@ -1020,6 +1021,7 @@ export default function Index({ params }: any) {
               )}
 
             </div>
+            */}
 
 
 
