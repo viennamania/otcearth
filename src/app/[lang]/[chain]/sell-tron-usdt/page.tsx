@@ -1590,7 +1590,6 @@ export default function Index({ params }: any) {
 
           <Header
             lang={params.lang}
-            chain={params.chain}
             agent={agent || ""}
             tokenId={agentNumber || ""}
           />
@@ -3983,12 +3982,10 @@ const TradeDetail = (
   function Header(
     {
         lang,
-        chain,
         agent,
         tokenId,
     } : {
         lang: string
-        chain: string
         agent: string
         tokenId: string
     }
@@ -4008,7 +4005,7 @@ const TradeDetail = (
             <button
                 onClick={() => {
                     router.push(
-                      "/" + lang + "/" + chain + "/?agent=" + agent + "&tokenId=" + tokenId
+                      "/" + lang + "/tron/?agent=" + agent + "&tokenId=" + tokenId
                     )
                 }}
             >            
@@ -4033,7 +4030,7 @@ const TradeDetail = (
             <button
               onClick={() => {
                 router.push(
-                  "/" + lang + "/" + chain + "/profile-settings?agent=" + agent + "&tokenId=" + tokenId
+                  "/" + lang + "/profile-settings-tron?agent=" + agent + "&tokenId=" + tokenId
                 )
               }}
               className="text-gray-600 hover:underline text-xs xl:text-lg"

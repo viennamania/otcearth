@@ -12,7 +12,7 @@ import { toast } from 'react-hot-toast';
 
 
 
-import { client } from "../../../client";
+import { client } from "../../client";
 
 import {
     getContract,
@@ -71,7 +71,7 @@ import { balanceOf, transfer } from "thirdweb/extensions/erc20";
  
 
 import AppBarComponent from "@/components/Appbar/AppBar";
-import { getDictionary } from "../../../dictionaries";
+import { getDictionary } from "../../dictionaries";
 
 import {
     useRouter,
@@ -2161,12 +2161,10 @@ export default function SettingsPage({ params }: any) {
 function Header(
     {
         lang,
-        chain,
         agent,
         tokenId,
     } : {
         lang: string
-        chain: string
         agent: string
         tokenId: string
     }
@@ -2186,7 +2184,7 @@ function Header(
             <button
                 onClick={() => {
                     router.push(
-                        "/" + lang + "/" + chain + "/?agent=" + agent + "&tokenId=" + tokenId
+                        "/" + lang + "/tron/?agent=" + agent + "&tokenId=" + tokenId
                     )
                 }}
             >            
@@ -2209,7 +2207,7 @@ function Header(
                 <button
                 onClick={() => {
                     router.push(
-                        "/" + lang + "/" + chain + "/profile-settings?agent=" + agent + "&tokenId=" + tokenId
+                        "/" + lang + "/profile-settings-tron?agent=" + agent + "&tokenId=" + tokenId
                     );
                 }}
                 className="text-gray-600 hover:underline text-xs xl:text-lg"

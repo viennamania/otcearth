@@ -1838,6 +1838,7 @@ export default function Index({ params }: any) {
           <AppBarComponent />
 
           <Header
+            lang={params.lang}
             agent={agent || ''}
             tokenId={agentNumber || ''}
           />
@@ -3935,11 +3936,13 @@ const TradeDetail = (
 
   function Header(
     {
-        agent,
-        tokenId,
+      lang,
+      agent,
+      tokenId,
     } : {
-        agent: string
-        tokenId: string
+      lang: string
+      agent: string
+      tokenId: string
     }
 ) {
 
@@ -3956,7 +3959,9 @@ const TradeDetail = (
             {/* logo */}
             <button
                 onClick={() => {
-                    router.push('/kr/polygon/?agent=' + agent + '&tokenId=' + tokenId);
+                    router.push(
+                      '/' + lang + '/tron/?agent=' + agent + '&tokenId=' + tokenId
+                    );
                 }}
             >            
                 <div className="flex flex-row gap-2 items-center">
@@ -3979,8 +3984,10 @@ const TradeDetail = (
 
             <button
               onClick={() => {
-                router.push('/kr/polygon/profile-settings?agent=' + agent);
-              }}
+                router.push(
+                  '/' + lang + '/profile-settings?agent=' + agent + '&tokenId=' + tokenId
+                );
+              } }
               className="text-gray-600 hover:underline text-xs xl:text-lg"
             >
               SETTINGS

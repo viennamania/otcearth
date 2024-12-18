@@ -1439,12 +1439,10 @@ useEffect(() => {
 function Header(
   {
       lang,
-      chain,
       agent,
       tokenId,
   } : {
       lang: string
-      chain: string
       agent: string
       tokenId: string
   }
@@ -1464,7 +1462,7 @@ function Header(
           <button
               onClick={() => {
                   router.push(
-                    '/' + lang + '/' + chain + '/?agent=' + agent + '&tokenId=' + tokenId
+                    '/' + lang + '/tron/?agent=' + agent + '&tokenId=' + tokenId
                   );
               }}
           >            
@@ -1484,22 +1482,10 @@ function Header(
 
         {/* menu */}
         <div className="flex flex-row gap-2 items-center">
-
           <button
             onClick={() => {
               router.push(
-                '/' + lang + '/' + chain + '/tbot?agent=' + agent + '&tokenId=' + tokenId
-              );
-
-            }}
-            className="text-gray-600 hover:underline text-xs xl:text-lg"
-          >
-            TBOT
-          </button>
-          <button
-            onClick={() => {
-              router.push(
-                '/' + lang + '/' + chain + '/profile-settings?agent=' + agent + '&tokenId=' + tokenId
+                '/' + lang + '/profile-settings-tron?agent=' + agent + '&tokenId=' + tokenId
               );
             }}
             className="text-gray-600 hover:underline text-xs xl:text-lg"

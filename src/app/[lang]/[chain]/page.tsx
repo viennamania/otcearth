@@ -989,6 +989,7 @@ export default function Index({ params }: any) {
         
         
         <Header
+          lang={params.lang}
           agent={agent || ""}
           tokenId={agentNumber || ""}
         />
@@ -1681,21 +1682,9 @@ export default function Index({ params }: any) {
                     {/* 프로필 설정 */}
                     <button
                       onClick={() => {
-                        //console.log("회원정보 설정");
-
-                        if (!address) {
-                          toast.error(Please_connect_your_wallet_first);
-                          return;
-                        }
-
                         router.push(
-
-                          params.chain === "tron" ?
-                          "/" + params.lang + "/" + params.chain + "/profile-settings-tron" + "?agent=" + agent + "&tokenId=" + agentNumber
-                          :
-                          "/" + params.lang + "/" + params.chain + "/profile-settings" + "?agent=" + agent + "&tokenId=" + agentNumber
+                          "/" + params.lang + "/profile-settings-tron" + "?agent=" + agent + "&tokenId=" + agentNumber
                         );
-
                       }}
                       className="text-sm border border-gray-800 rounded-lg p-2
                       hover:bg-gray-800 hover:text-white"
@@ -1937,11 +1926,13 @@ export default function Index({ params }: any) {
 
 function Header(
   {
+    lang,
     agent,
     tokenId,
   }
   :
   {
+    lang: string;
     agent: string;
     tokenId: string;
   }
@@ -1976,7 +1967,9 @@ function Header(
           
           <button
             onClick={() => {
-              router.push('/kr/polygon/profile-settings/?agent=' + agent + '&tokenId=' + tokenId);
+              router.push(
+                '/' + lang + '/profile-settings-tron/?agent=' + agent + '&tokenId=' + tokenId
+              );
             }}
             className="text-gray-600 hover:underline text-xs xl:text-lg"
           >

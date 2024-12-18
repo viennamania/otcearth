@@ -12,7 +12,7 @@ import { toast } from 'react-hot-toast';
 
 
 
-import { client } from "../../../client";
+import { client } from "../../client";
 
 import {
     getContract,
@@ -72,7 +72,7 @@ import { balanceOf, transfer } from "thirdweb/extensions/erc20";
  
 
 import AppBarComponent from "@/components/Appbar/AppBar";
-import { getDictionary } from "../../../dictionaries";
+import { getDictionary } from "../../dictionaries";
 
 import {
     useRouter,
