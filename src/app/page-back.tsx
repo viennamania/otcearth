@@ -992,7 +992,7 @@ export default function Home() {
               }}
               connectModal={{
                 size: "wide", 
-                titleIcon: "https://owinwallet.com/icon-tbot.png",                           
+                titleIcon: "https://otc.earth/logo-tether.png",                           
                 showThirdwebBranding: false,
 
               }}
