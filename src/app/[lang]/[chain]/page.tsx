@@ -1441,7 +1441,7 @@ export default function Index({ params }: any) {
 
 
                 {/* apply button of listing for new token */}
-
+                {/*
                 <div className=" flex flex-row gap-2 justify-center items-center mt-10">
                   <button
                     onClick={() => {
@@ -1473,7 +1473,9 @@ export default function Index({ params }: any) {
                     </div>
                   </button>
                 </div>
+                */}
 
+       
 
                 <div className=" flex flex-col gap-2 justify-center items-center mt-10">
                   
@@ -1509,7 +1511,7 @@ export default function Index({ params }: any) {
 
 
                   {/* Go Buy Order USDT */}
-
+                  {/*
                   <button
                     onClick={() => {
   
@@ -1540,6 +1542,7 @@ export default function Index({ params }: any) {
                       />
                     </div>
                   </button>
+                  */}
 
 
                 </div>
@@ -1801,7 +1804,7 @@ export default function Index({ params }: any) {
 
 
               
-                <div className="grid grid-cols-2 gap-2 mt-4">
+                <div className="grid grid-cols-1 gap-2 mt-4">
 
  
                   <button
@@ -1850,24 +1853,11 @@ export default function Index({ params }: any) {
                     </div>
                   </button>
 
-
+                  {/*
                   <button
                     //disabled={!address}
                     onClick={() => {
-                      // my sell trades
-                      //console.log("my sell trades");
 
-                      /*
-                      if (!address) {
-                        toast.error(Please_connect_your_wallet_first);
-                        return;
-                      }
-
-                      if (!seller && !userCode) {
-                        toast.error(Please_verify_your_account_first_for_selling);
-                        return;
-                      }
-                      */
 
                       // redirect to sell trades page
                       router.push(
@@ -1895,6 +1885,7 @@ export default function Index({ params }: any) {
                       />
                     </div>
                   </button>
+                  */}
 
                 </div>
                 
