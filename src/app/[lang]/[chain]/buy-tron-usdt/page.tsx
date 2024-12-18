@@ -972,6 +972,29 @@ export default function Index({ params }: any) {
 
                   <div className="text-2xl font-semibold">{Buy_USDT}</div>
 
+                  {user && (
+                    <div className="text-lg text-zinc-400">
+                      {user.nickname}
+                    </div>
+                  )}
+
+                  {!user && (
+                    <div className="flex flex-col gap-2 items-start">
+                      <div className="text-xs text-zinc-400">
+                        구매자 정보가 없습니다
+                      </div>
+                      <button
+                        onClick={() => {
+                          router.push('/' + params.lang + '/' + params.chain + '/profile-settings-tron');
+                        }}
+                        className="text-xs text-zinc-400 underline"
+                      >
+                        구매자 정보 등록하기
+                      </button>
+                    </div>
+                  )}
+
+
               </div>
 
 
@@ -2333,7 +2356,7 @@ export default function Index({ params }: any) {
 
                                                 <div className="flex flex-col items-start justify-start">
                                                   <input
-                                                    disabled={!address || !agreementForTrade[index]}
+                                                    disabled={!address || !user || !agreementForTrade[index]}
                                                     type="text"
                                                     placeholder="SMS Receiver Mobile Number"
                                                     className={`w-full px-4 py-2 rounded-md text-black`}
@@ -2351,9 +2374,9 @@ export default function Index({ params }: any) {
 
 
                                             <button
-                                              disabled={!address || !agreementForTrade[index]}
+                                              disabled={!address || !user || !agreementForTrade[index]}
                                               className={`m-10 text-lg text-white px-4 py-2 rounded-md
-                                                ${!address || !agreementForTrade[index] ? 'bg-zinc-800' : 'bg-green-500 hover:bg-green-600'}
+                                                ${!address || !user || !agreementForTrade[index] ? 'bg-zinc-800' : 'bg-green-500 hover:bg-green-600'}
                                                 `}
                                               onClick={() => {
     
