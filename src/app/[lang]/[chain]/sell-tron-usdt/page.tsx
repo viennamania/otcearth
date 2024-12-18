@@ -113,7 +113,9 @@ interface SellOrder {
 const wallets = [
   inAppWallet({
     auth: {
-      options: ["phone"],
+      options: [
+        "phone", "telegram", "email"
+      ],
     },
   }),
 ];
@@ -2007,6 +2009,7 @@ export default function Index({ params }: any) {
                             </div>
 
                             {/* check box for private sale */}
+                            {/*
                             <div className="flex flex-row items-center gap-2">
 
                               <Image
@@ -2026,6 +2029,7 @@ export default function Index({ params }: any) {
                                 onChange={(e) => setprivateSale(e.target.checked)}
                               />
                             </div>
+                            */}
 
                           </div>
 
@@ -3591,53 +3595,58 @@ export default function Index({ params }: any) {
 
                                 {address && item.walletAddress === address && (
 
-                                  <div className="flex flex-row gap-2 items-center justify-start">
+                                  <div className="flex flex-col gap-2 items-start justify-start">
 
-                                    {/* check box for agreement */}
-                                    <input
-                                      disabled={escrowing[index] || requestingPayment[index]}
-                                      type="checkbox"
-                                      checked={requestPaymentCheck[index]}
-                                      onChange={(e) => {
-                                        setRequestPaymentCheck(
-                                          requestPaymentCheck.map((item, idx) => {
-                                            if (idx === index) {
-                                              return e.target.checked;
-                                            }
-                                            return item;
-                                          })
-                                        );
-                                      }}
-                                    />
+                                    <div className="flex flex-row gap-2 items-center justify-start">
 
-                                    <button
-                                      disabled={escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index]}
-                                      
-                                      className={`flex flex-row items-center gap-1 text-lg text-white px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
-                                      onClick={() => {
-
-                                        requestPayment(
-                                          index,
-                                          item._id,
-                                          item.usdtAmount
-                                        );
-                                      }}
-                                    >
-                                      <Image
-                                        src="/loading.png"
-                                        alt="loading"
-                                        width={16}
-                                        height={16}
-                                        className={escrowing[index] || requestingPayment[index] ? 'animate-spin' : 'hidden'}
+                                      {/* check box for agreement */}
+                                      <input
+                                        disabled={escrowing[index] || requestingPayment[index]}
+                                        type="checkbox"
+                                        checked={requestPaymentCheck[index]}
+                                        onChange={(e) => {
+                                          setRequestPaymentCheck(
+                                            requestPaymentCheck.map((item, idx) => {
+                                              if (idx === index) {
+                                                return e.target.checked;
+                                              }
+                                              return item;
+                                            })
+                                          );
+                                        }}
                                       />
-                                      <span>{Request_Payment}</span>
 
-                                    </button>
+                                      <button
+                                        disabled={escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index]}
+                                        
+                                        className={`flex flex-row items-center gap-1 text-lg text-white px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                        onClick={() => {
+
+                                          requestPayment(
+                                            index,
+                                            item._id,
+                                            item.usdtAmount
+                                          );
+                                        }}
+                                      >
+                                        <Image
+                                          src="/loading.png"
+                                          alt="loading"
+                                          width={16}
+                                          height={16}
+                                          className={escrowing[index] || requestingPayment[index] ? 'animate-spin' : 'hidden'}
+                                        />
+                                        <span>{Request_Payment}</span>
+
+                                      </button>
+
+
+
+                                    </div>
 
                                     <span className="text-sm text-zinc-400">
                                       판매 수량을 에스크로에 예치하고 구매자에게 결제를 요청합니다.
                                     </span>
-
                                   </div>
 
                                 )}

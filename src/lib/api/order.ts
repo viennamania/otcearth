@@ -683,7 +683,7 @@ export async function acceptSellOrder(data: any) {
 
 
 
-  if (!data.orderId || !data.buyerWalletAddress || !data.buyerMobile) {
+  if (!data.orderId || !data.buyerWalletAddress ) {
     return null;
   }
 

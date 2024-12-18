@@ -101,7 +101,9 @@ interface SellOrder {
 const wallets = [
   inAppWallet({
     auth: {
-      options: ["phone"],
+      options: [
+        "phone", "telegram", "email"
+      ],
     },
   }),
 ];
@@ -774,7 +776,7 @@ export default function Index({ params }: any) {
         );
 
 
-        fetch('/api/order/acceptSellOrder', {
+        fetch('/api/tron/acceptSellOrder', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -965,16 +967,6 @@ export default function Index({ params }: any) {
                     alt="USDT"
                     width={35}
                     height={35}
-                    className="rounded-lg"
-                  />
-
-                  <Image
-                    src={
-                      `/logo-${params.chain}.png`
-                    }
-                    alt="Chain"
-                    width={32}
-                    height={32}
                     className="rounded-lg"
                   />
 

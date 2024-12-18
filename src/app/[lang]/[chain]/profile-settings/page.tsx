@@ -152,8 +152,7 @@ export default function SettingsPage({ params }: any) {
         inAppWallet({
           auth: {
             options: [
-                "phone",
-                 
+                "phone", "telegram", "email"
             ],
           },
         }),
