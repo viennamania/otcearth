@@ -1995,7 +1995,7 @@ function Header(
         {/* logo */}
         <div className="flex flex-row gap-2 items-center">
           <Image
-            src="/circle-logo.webp"
+            src="/logo-otcearth.webp"
             alt="Circle Logo"
             width={35}
             height={35}
@@ -2029,7 +2029,7 @@ function Header(
           filter: "drop-shadow(0px 0px 24px #a726a9a8)",
         }}
       />
-      */}
+      
       <Image
         src="/wallet-logo.webp"
         alt="Wallet Logo"
@@ -2059,6 +2059,7 @@ function Header(
           DeFi
         </code>{" "}
       </p>
+      */}
       
     </header>
   );

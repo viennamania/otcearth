@@ -3890,7 +3890,7 @@ function Header(
             >            
                 <div className="flex flex-row gap-2 items-center">
                     <Image
-                    src="/circle-logo.webp"
+                    src="/logo-otcearth.webp"
                     alt="Circle Logo"
                     width={35}
                     height={35}
