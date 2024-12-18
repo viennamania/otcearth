@@ -862,7 +862,7 @@ export default function SettingsPage({ params }: any) {
 
     const [otp, setOtp] = useState('');
 
-    const [verifiedOtp, setVerifiedOtp] = useState(false);
+    const [verifiedOtp, setVerifiedOtp] = useState(true);
   
     const [isSendedOtp, setIsSendedOtp] = useState(false);
   
