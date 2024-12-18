@@ -2147,7 +2147,7 @@ export default function AIPage({ params }: any) {
                                     height={20}
                                     className="rounded-lg w-10 h-10"
                                     />
-                                    <span>Sign in with OTC Magic Wallet</span>
+                                    <span>Sign in with OTC Wallet</span>
                                 </div>
                                 </button>
                             */}
@@ -2163,7 +2163,7 @@ export default function AIPage({ params }: any) {
                                     }}
                                     theme={"light"}
                                     connectButton={{
-                                        label: "Sign in with OTC Magic Wallet",
+                                        label: "Sign in with OTC Wallet",
                                     }}
                                     connectModal={{
                                         size: "wide", 

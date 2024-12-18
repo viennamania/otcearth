@@ -1680,7 +1680,7 @@ export default function Index({ params }: any) {
                       }}
                       theme={"light"}
                       connectButton={{
-                        label: "Sign in with OTC Magic Wallet",
+                        label: "Sign in with OTC Wallet",
                       }}
                       connectModal={{
                         size: "wide", 
@@ -3976,7 +3976,7 @@ const TradeDetail = (
                     className="rounded-full w-10 h-10 xl:w-14 xl:h-14"
                     />
                     <span className="text-lg xl:text-3xl text-gray-800 font-semibold">
-                    OTC
+                    OTC Wallet
                     </span>
                 </div>
             </button>
@@ -3985,16 +3985,6 @@ const TradeDetail = (
           {/* COIN, NFT, DEFI */}
           <div className="flex flex-row gap-2 items-center">
 
-            <button
-              onClick={() => {
-                router.push(
-                  "/" + lang + "/" + chain + "/tbot?agent=" + agent + "&tokenId=" + tokenId
-                )
-              }}
-              className="text-gray-600 hover:underline text-xs xl:text-lg"
-            >
-              TBOT
-            </button>
             <button
               onClick={() => {
                 router.push(

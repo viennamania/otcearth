@@ -789,7 +789,7 @@ export default function Index({ params }: any) {
                     }}
                     theme={"light"}
                     connectButton={{
-                      label: "Sign in with OTC Magic Wallet",
+                      label: "Sign in with OTC Wallet",
                     }}
                     connectModal={{
                       size: "wide", 

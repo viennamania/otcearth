@@ -2025,7 +2025,7 @@ export default function AIPage({ params }: any) {
                                     }}
                                     theme={"light"}
                                         connectButton={{
-                                            label: "Sign in with Magic Wallet",
+                                            label: "Sign in with OTC Wallet",
                                     }}
                                     connectModal={{
                                         size: "wide",                            
