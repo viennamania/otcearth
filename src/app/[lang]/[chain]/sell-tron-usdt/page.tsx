@@ -1634,27 +1634,32 @@ export default function Index({ params }: any) {
                     {Sell_USDT}
                   </div>
 
-                  {seller && (
-                    <div className="text-lg text-zinc-400">
-                      {seller.nickname}
-                    </div>
-                  )}
 
-                  {!seller && (
-                    <div className="flex flex-col gap-2 items-start">
-                      <div className="text-xs text-zinc-400">
-                        판매자 정보가 없습니다
+                  <div className="flex flex-col gap-2 items-start">
+              
+                    {user && (
+                      <div className="text-lg text-zinc-400">
+                        {user.nickname}
                       </div>
-                      <button
-                        onClick={() => {
-                          router.push('/' + params.lang + '/' + params.chain + '/profile-settings-tron');
-                        }}
-                        className="text-xs text-zinc-400 underline"
-                      >
-                        판매자 정보 등록하기
-                      </button>
-                    </div>
-                  )}
+                    )}
+
+                    {!seller && (
+                      <div className="flex flex-col gap-2 items-start">
+                        <div className="text-xs text-zinc-400">
+                          판매자 정보가 없습니다
+                        </div>
+                        <button
+                          onClick={() => {
+                            router.push('/' + params.lang + '/' + params.chain + '/profile-settings-tron');
+                          }}
+                          className="text-xs text-zinc-400 underline"
+                        >
+                          판매자 정보 등록하기
+                        </button>
+                      </div>
+                    )}
+
+                  </div>
 
               </div>
 
@@ -2353,8 +2358,22 @@ export default function Index({ params }: any) {
 
                           ) : (
                               <button
-                                  disabled={usdtAmount === 0 || agreementPlaceOrder === false}
-                                  className={`text-lg text-white px-4 py-2 rounded-md ${usdtAmount === 0 || agreementPlaceOrder === false ? 'bg-gray-500' : 'bg-green-500'}`}
+                                  disabled={
+                                    usdtAmount === 0
+                                    || agreementPlaceOrder === false
+                                    || sellOrdering
+                                    || !address
+                                    || !seller
+                                    || !escrowWalletAddress
+                                  }
+                                  className={`text-lg text-white px-4 py-2 rounded-md
+                                    ${usdtAmount === 0
+                                    || agreementPlaceOrder === false
+                                    || sellOrdering
+                                    || !address
+                                    || !seller
+                                    || !escrowWalletAddress
+                                    ? 'bg-gray-500' : 'bg-green-500'}`}
                                   onClick={() => {
                                       console.log('Sell USDT');
                                       // open trade detail
