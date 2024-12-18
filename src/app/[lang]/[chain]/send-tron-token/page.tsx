@@ -843,7 +843,6 @@ useEffect(() => {
 
         <Header
             lang={params.lang}
-            chain={params.chain}
             agent={agent || ""}
             tokenId={agentNumber || ""}
           />

@@ -1466,7 +1466,6 @@ export default function SettingsPage({ params }: any) {
 
                 <Header
                     lang={params.lang}
-                    chain={params.chain}
                     agent={agent ? agent : ""}
                     tokenId={agentNumber ? agentNumber : ""}
                 />
