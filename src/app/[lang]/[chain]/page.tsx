@@ -1418,8 +1418,8 @@ export default function Index({ params }: any) {
 
 
                       {/* tronWalletAddress and qrcode for tronWalletAddress */}
-                      <div className="flex flex-row gap-2 items-center">
-                        <p className="text-lg md:text-xl font-semibold text-gray-600">
+                      <div className="flex flex-col gap-2 items-center">
+                        <p className="text-sm text-gray-600">
                           {tronWalletAddress}
                         </p>
                         {/* qr code image */}
