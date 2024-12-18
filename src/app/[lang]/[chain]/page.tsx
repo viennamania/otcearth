@@ -987,14 +987,96 @@ export default function Index({ params }: any) {
 
       <div className="py-0 w-full">
         
-        
-        <Header
-          lang={params.lang}
-          agent={agent || ""}
-          tokenId={agentNumber || ""}
-        />
 
-        <div className="w-full flex flex-row gap-2 justify-between items-center">
+          <header className="flex flex-col items-center mb-5 md:mb-10">
+
+          {/* header menu */}
+          <div className="w-full flex flex-row justify-between items-center gap-2
+            bg-green-500 p-4 rounded-lg mb-5
+          ">
+            {/* logo */}
+            <div className="flex flex-row gap-2 items-center">
+              <Image
+                src="/logo-otcearth.webp"
+                alt="Circle Logo"
+                width={35}
+                height={35}
+                className="rounded-full w-10 h-10 xl:w-14 xl:h-14"
+              />
+              {!address && (
+                <span className="text-lg xl:text-3xl text-gray-800 font-semibold">
+                  OTC Wallet
+                </span>
+              )}
+            </div>
+
+
+
+            {!address ? (
+
+                <ConnectButton
+                  client={client}
+                  wallets={wallets}
+                  accountAbstraction={{
+                    chain: polygon,
+                    sponsorGas: true
+                  }}
+                  theme={"light"}
+                  connectButton={{
+                    label: "지갑  연결",
+                  }}
+                  connectModal={{
+                    size: "compact",
+                    titleIcon: "https://otc.earth/logo-tether.png",                           
+                    showThirdwebBranding: false,
+
+                  }}
+                  locale={"ko_KR"}
+                  //locale={"en_US"}
+                />
+
+            ) : (
+
+              <div className="flex flex-row gap-2 items-center">
+
+                {/* disconnect button */}
+                <button
+                  onClick={() => {
+                    confirm("지갑 연결을 해제하시겠습니까?") && activeWallet?.disconnect();
+                  }}
+                  className="bg-zinc-800 text-white p-2 rounded-lg text-xs xl:text-lg"
+                >
+                  지갑 연결 해제
+                </button>
+
+                <button
+                  onClick={() => {
+                    router.push(
+                      '/' + params.lang + '/profile-settings-tron/?agent=' + agent + '&tokenId=' + agentNumber
+                    );
+                  }}
+                  className="text-gray-600 hover:underline text-xs xl:text-lg"
+                >
+                  {Profile_Settings}
+                </button>
+
+              </div>
+
+            )}
+
+
+          </div>
+
+
+              
+
+
+        </header>
+
+
+
+
+        <div className="w-full flex flex-row gap-2 justify-start items-center">
           
   
             {/*
@@ -1027,9 +1109,9 @@ export default function Index({ params }: any) {
 
           {/* language selection */}
           
-          <div className=" flex flex-row gap-2 justify-end items-center">
+          <div className="w-full flex flex-row gap-2 justify-end items-center">
             <select
-              className="p-2 bg-zinc-800 text-white rounded"
+              className="p-2 bg-zinc-800 text-white rounded w-32"
               onChange={(e) => {
                 const lang = e.target.value;
                 router.push(
@@ -1134,88 +1216,6 @@ export default function Index({ params }: any) {
           <p className="text-zinc-300">{description}</p>
         </div>
 
-
-
-
-        {!address && (
-
-          <div className="w-full flex flex-col justify-center items-start gap-2 p-2">
-
-            {/*
-              <button
-                onClick={handleConnect}
-                className="w-full bg-zinc-800 text-white px-4 py-2 rounded-lg hover:bg-zinc-900"
-              >
-                <div className="flex flex-row justify-center items-center gap-2">
-                  <Image
-                    src={thirdwebIcon}
-                    alt="Thirdweb"
-                    width={20}
-                    height={20}
-                    className="rounded-lg w-10 h-10"
-                  />
-                  <span>Sign in with Wallet</span>
-                </div>
-              </button>
-            */}
-
-
-
-
-            
-          
-            <ConnectButton
-              client={client}
-              wallets={wallets}
-              accountAbstraction={{
-                chain: polygon,
-                 
-                sponsorGas: true
-              }}
-              theme={"light"}
-              connectButton={{
-                label: "Sign in with Wallet",
-              }}
-              connectModal={{
-                size: "wide", 
-                titleIcon: "https://otc.earth/logo-tether.png",                           
-                showThirdwebBranding: false,
-
-              }}
-              locale={"ko_KR"}
-              //locale={"en_US"}
-            />
-            
-          
-
-          </div>
-
-        )}
-
-        {address && (
-          <div className="mt-0 w-full flex items-center justify-start gap-5">
-            <Image
-              src="/icon-wallet-live.gif"
-              alt="Wallet"
-              width={65}
-              height={25}
-              className="rounded"
-            />
-            <div className="flex flex-col gap-2">
-              {/* disconnect button */}
-              <button
-                onClick={() => {
-                  confirm("지갑 연결을 해제하시겠습니까?") && activeWallet?.disconnect();
-                }}
-                className="bg-zinc-800 text-white p-2 rounded-lg"
-              >
-                지갑 연결 해제
-              </button>
-            </div>
-
-          </div>
-        )}
-            
 
 
         <div className="mt-5 w-full flex flex-col xl:flex-row items-center xl:items-stretch justify-center gap-5 mb-10">
@@ -1737,7 +1737,7 @@ export default function Index({ params }: any) {
 
 
               
-                <div className="grid grid-cols-2 gap-2 mt-4">
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-2 mt-4">
 
  
                    {/* Go Buy USDT */}

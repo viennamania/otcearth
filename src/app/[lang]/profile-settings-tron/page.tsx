@@ -1646,154 +1646,153 @@ export default function SettingsPage({ params }: any) {
                     </div>
 
 
-                    <div className='w-full  flex flex-col gap-5 '>
+                    <div className='w-full flex flex-col xl:flex-row gap-5 items-start justify-between'>
 
                         {/* profile picture */}
-                    
 
+                        <div className='w-full flex flex-col gap-4 items-start justify-center'>
+                            {address && userCode && (
+                                <div className='w-full flex flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
+                                    <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded">
+                                        {My_Nickname}
+                                    </div>
 
-                        {address && userCode && (
-                            <div className='flex flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
+                                    <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
+                                        {nickname}
+                                    </div>
 
-                                <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded">
-                                    {My_Nickname}
-                                </div>
+                                    
+                                    <button
+                                        onClick={() => {
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
-                                    {nickname}
-                                </div>
-
-                                
-                                <button
-                                    onClick={() => {
-
-                                        nicknameEdit ? setNicknameEdit(false) : setNicknameEdit(true);
-
-                                    } }
-                                    className="p-2 bg-blue-500 text-zinc-100 rounded"
-                                >
-                                    {nicknameEdit ? Cancel : Edit}
-                                </button>
-
-                                <Image
-                                    src="/verified.png"
-                                    alt="Verified"
-                                    width={20}
-                                    height={20}
-                                    className="rounded-lg"
-                                />
-
-
-                                
-                            </div>
-                        )}
-
-
-                        { (address && (nicknameEdit || !userCode)) && (
-                            <div className=' flex flex-col xl:flex-row gap-2 items-start justify-between border border-gray-300 p-4 rounded-lg'>
-
-                                <div
-                                    className="bg-green-500 text-sm text-zinc-100 p-2 rounded"
-                                >
-                                    {!userCode ? Enter_your_nickname :
-                                        nicknameEdit ? "수정할 내 닉네임" : Enter_your_nickname
-                                    }
-                                </div>
-
-                                <div className='flex flex-col gap-2 items-start justify-between'>
-                                    <input
-                                        disabled={!address}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-2xl font-semibold"
-                                        placeholder={Enter_your_nickname}
-                                        
-                                        //value={nickname}
-                                        value={editedNickname}
-
-                                        type='text'
-                                        onChange={(e) => {
-                                            // check if the value is a number
-                                            // check if the value is alphanumeric and lowercase
-
-                                            if (!/^[a-z0-9]*$/.test(e.target.value)) {
-                                                toast.error(Nickname_should_be_alphanumeric_lowercase);
-                                                return;
-                                            }
-                                            if ( e.target.value.length > 10) {
-                                                toast.error(Nickname_should_be_at_least_5_characters_and_at_most_10_characters);
-                                                return;
-                                            }
-
-                                            //setNickname(e.target.value);
-
-                                            setEditedNickname(e.target.value);
-
-                                            checkNicknameIsDuplicate(e.target.value);
+                                            nicknameEdit ? setNicknameEdit(false) : setNicknameEdit(true);
 
                                         } }
+                                        className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                    >
+                                        {nicknameEdit ? Cancel : Edit}
+                                    </button>
+
+                                    <Image
+                                        src="/verified.png"
+                                        alt="Verified"
+                                        width={20}
+                                        height={20}
+                                        className="rounded-lg"
                                     />
 
-                                    {editedNickname && isNicknameDuplicate && (
-                                        <div className='flex flex-row gap-2 items-center justify-between'>
-                                            <span className='text-xs font-semibold text-red-500'>
-                                                이미 사용중인 닉네임입니다.
-                                            </span>
-                                        </div>
-                                    )}
 
-                                    {editedNickname
-                                    && !isNicknameDuplicate
-                                    && editedNickname.length >= 5
-                                    && (
-                                        <div className='flex flex-row gap-2 items-center justify-between'>
-                                            <span className='text-xs font-semibold text-green-500'>
-                                                사용가능한 닉네임입니다.
-                                            </span>
-                                        </div>
-                                    )}
-                                </div>
-
-
-                                <div className='flex flex-row gap-2 items-center justify-between'>
-                                    <span className='text-xs font-semibold'>
-                                        {Nickname_should_be_5_10_characters}
-                                    </span>
-                                </div>
-                                <button
-                                    disabled={
-                                        !address
-                                        || !editedNickname
-                                        || editedNickname.length < 5
-                                        || isNicknameDuplicate
-                                        || loadingSetUserData
-                                    }
-                                    className={`
-                                        ${!address
-                                        || !editedNickname
-                                        || editedNickname.length < 5
-                                        || isNicknameDuplicate
-                                        || loadingSetUserData
-                                        ? 'bg-gray-300 text-gray-400'
-                                        : 'bg-blue-500 text-zinc-100'}
-
-                                        p-2 rounded-lg text-sm font-semibold
-                                    `}
-                                    onClick={() => {
-                                        setUserData();
-                                    }}
-                                >
-                                    {loadingSetUserData ? "저장중..." : Save}
                                     
-                                </button>
+                                </div>
+                            )}
 
-                                
+                            { (address && (nicknameEdit || !userCode)) && (
+                                <div className='w-full flex flex-col xl:flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
-                            </div>
-                        )}
+                                    <div
+                                        className="bg-green-500 text-sm text-zinc-100 p-2 rounded"
+                                    >
+                                        {!userCode ? Enter_your_nickname :
+                                            nicknameEdit ? "수정할 내 닉네임" : Enter_your_nickname
+                                        }
+                                    </div>
 
+                                    <div className='flex flex-col gap-2 items-start justify-between'>
+                                    
+                                        <span className='text-xs font-semibold'>
+                                            {Nickname_should_be_5_10_characters}
+                                        </span>
+
+                                        <input
+                                            disabled={!address}
+                                            className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-2xl font-semibold"
+                                            placeholder={Enter_your_nickname}
+                                            
+                                            //value={nickname}
+                                            value={editedNickname}
+
+                                            type='text'
+                                            onChange={(e) => {
+                                                // check if the value is a number
+                                                // check if the value is alphanumeric and lowercase
+
+                                                if (!/^[a-z0-9]*$/.test(e.target.value)) {
+                                                    toast.error(Nickname_should_be_alphanumeric_lowercase);
+                                                    return;
+                                                }
+                                                if ( e.target.value.length > 10) {
+                                                    toast.error(Nickname_should_be_at_least_5_characters_and_at_most_10_characters);
+                                                    return;
+                                                }
+
+                                                //setNickname(e.target.value);
+
+                                                setEditedNickname(e.target.value);
+
+                                                checkNicknameIsDuplicate(e.target.value);
+
+                                            } }
+                                        />
+
+                                        {editedNickname && isNicknameDuplicate && (
+                                            <div className='flex flex-row gap-2 items-center justify-between'>
+                                                <span className='text-xs font-semibold text-red-500'>
+                                                    이미 사용중인 닉네임입니다.
+                                                </span>
+                                            </div>
+                                        )}
+
+                                        {editedNickname
+                                        && !isNicknameDuplicate
+                                        && editedNickname.length >= 5
+                                        && (
+                                            <div className='flex flex-row gap-2 items-center justify-between'>
+                                                <span className='text-xs font-semibold text-green-500'>
+                                                    사용가능한 닉네임입니다.
+                                                </span>
+                                            </div>
+                                        )}
+                                    </div>
+
+
+ 
+
+                                    <button
+                                        disabled={
+                                            !address
+                                            || !editedNickname
+                                            || editedNickname.length < 5
+                                            || isNicknameDuplicate
+                                            || loadingSetUserData
+                                        }
+                                        className={`
+                                            ${!address
+                                            || !editedNickname
+                                            || editedNickname.length < 5
+                                            || isNicknameDuplicate
+                                            || loadingSetUserData
+                                            ? 'bg-gray-300 text-gray-400'
+                                            : 'bg-blue-500 text-zinc-100'}
+
+                                            p-2 rounded-lg text-sm font-semibold
+                                        `}
+                                        onClick={() => {
+                                            setUserData();
+                                        }}
+                                    >
+                                        {loadingSetUserData ? "저장중..." : Save}
+                                        
+                                    </button>
+
+                                    
+
+                                </div>
+                            )}
+                        </div>
 
                         {userCode && (
-                            <div className='flex flex-row xl:flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
+                            <div className='w-full flex flex-row xl:flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
                                 <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded">
                                     {My_Profile_Picture}
@@ -1824,7 +1823,7 @@ export default function SettingsPage({ params }: any) {
                                     {userCode}
                                 </div>
 
- 
+
 
                                 <button
                                     onClick={() => {
@@ -1851,10 +1850,13 @@ export default function SettingsPage({ params }: any) {
                         */}
 
 
+                    </div>
+
+                    <div className='w-full  flex flex-col xl:flex-row justify-between gap-5 '>
 
                         {userCode && seller && (
 
-                            <div className='flex flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
+                            <div className='w-full flex flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
                                 <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded">
                                     {Seller}
@@ -1892,7 +1894,7 @@ export default function SettingsPage({ params }: any) {
                             //(userCode && !seller) || (userCode && seller && editSeller) && (
                             address && userCode && (
 
-                            <div className='flex flex-col gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
+                            <div className='w-full flex flex-col gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
                                 
                                 <div className='w-full flex flex-row gap-2 items-center justify-between'>
 
@@ -1986,7 +1988,7 @@ export default function SettingsPage({ params }: any) {
                             
 
                                 {/* otp verification */}
-
+                                {/*
                                 {verifiedOtp ? (
                                     <div className="w-full flex flex-row gap-2 items-center justify-center">
                                     <Image
@@ -1995,7 +1997,7 @@ export default function SettingsPage({ params }: any) {
                                         width={30}
                                         height={30}
                                     />
-                                    <div className="text-white">
+                                    <div className="text-sm font-semibold text-green-500">
                                         {OTP_verified}
                                     </div>
                                     </div>
@@ -2053,6 +2055,7 @@ export default function SettingsPage({ params }: any) {
                                     </div>
 
                                 )}
+                                */}
 
 
 
@@ -2060,87 +2063,6 @@ export default function SettingsPage({ params }: any) {
                             </div>
                         )}
 
-
-                        {/* update USDT Price */}
-                        {address && (
-                            address === '0x68B4F181d97AF97d8b111Ad50A79AfeB33CF6be6'
-                            || address === '0x91CA2566C3345026647aBbACB56093144eAA4c16'
-                        )
-                            && (
-                            <div className='flex flex-col gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
-                                <div className='flex flex-row gap-2 items-center justify-between'>
-
-                                    <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded">
-                                        Update USDT Price
-                                    </div>
-
-                                    <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
-                                        1 USDT = {usdtPrice} KRW
-                                    </div>
-
-                                    <button
-                                        onClick={() => {
-                                            setUsdtPriceEdit(!usdtPriceEdit);
-                                        }}
-                                        className="p-2 bg-blue-500 text-zinc-100 rounded"
-                                    >
-                                        {usdtPriceEdit ? Cancel : Edit}
-                                    </button>
-
-
-                                </div>
-
-                                {usdtPriceEdit && (
-                                    <div className='flex flex-col gap-2 items-center justify-between'>
-
-                                        <input 
-                                            className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-semibold"
-                                            placeholder="Enter USDT Price"
-                                            type='number'
-                                            value={editUsdtPrice}
-                                            onChange={(e) => {
-                                                setEditUsdtPrice(e.target.value as any);
-                                            }}
-                                        />
-                                        <button
-                                            disabled={editingUsdtPrice}
-
-                                            className={`
-                                                ${editingUsdtPrice ? 'bg-gray-300 text-gray-400' : 'bg-green-500 text-zinc-100'}
-                                                p-2 rounded-lg text-sm font-semibold
-                                            `}
-
-                                            onClick={async () => {
-                                                // api call /api/order/updatePrice
-
-                                                const response = await fetch("/api/order/updatePrice", {
-                                                    method: "POST",
-                                                    headers: {
-                                                        "Content-Type": "application/json",
-                                                    },
-                                                    body: JSON.stringify({
-                                                        walletAddress: address,
-                                                        price: editUsdtPrice,
-                                                    }),
-                                                })
-                                                .then((response) => (
-
-                                                    toast.success('USDT price updated successfully'),
-                                                    
-                                                    setUsdtPrice(editUsdtPrice)
-                                                
-                                                ))
-
-                                            } }
-                                                
-                                        >
-                                            Save
-                                        </button>
-                                    </div>
-                                )}
-
-                            </div>
-                        )}
 
                     </div>
 
