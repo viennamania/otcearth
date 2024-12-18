@@ -140,6 +140,8 @@ export async function POST(request: NextRequest) {
 
     const signedTx = await tronWeb.trx.sign(tx.transaction);
 
+  
+
     const broadcastTx = await tronWeb.trx.sendRawTransaction(signedTx);
 
     if (!broadcastTx) {
@@ -147,6 +149,15 @@ export async function POST(request: NextRequest) {
         result: null,
       });
     }
+
+    
+    if (broadcastTx && String(broadcastTx.code) === 'BANDWITH_ERROR') {
+      return NextResponse.json({
+        result: null,
+      });
+    }
+    
+
 
 
     const transactionHash = broadcastTx.transaction.txID;

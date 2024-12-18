@@ -21,10 +21,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
 
     <QueryClientProvider client={queryClient}>
+      {/*
       <ThirdwebProvider>
+      */}
+
         <ToastContainer />
         <Component {...pageProps} />
+      {/*
       </ThirdwebProvider>
+      */}
     </QueryClientProvider>
 
   )
