@@ -716,15 +716,6 @@ useEffect(() => {
                   width={35}
                   height={35}
                 />
-        
-                
-                <Image
-                  src={`/logo-${params.chain}.png`}
-                  alt="chain"
-                  width={32}
-                  height={32}
-                  className="rounded-lg"
-                />
                 
               </div>
 
