@@ -94,8 +94,7 @@ const wallets = [
   inAppWallet({
     auth: {
       options: [
-        "phone",
-         
+        "phone", "telegram", "email"
       ],
     },
   }),
@@ -543,7 +542,7 @@ export default function Index({ params }: any) {
     }
 
 
-    client && fetchData();
+    address && client && fetchData();
 
   } , [address]);
 
@@ -551,7 +550,7 @@ export default function Index({ params }: any) {
 
   ////console.log(phoneNumber);
 
-  console.log("userType========", userType);
+  ///console.log("userType========", userType);
 
 
 

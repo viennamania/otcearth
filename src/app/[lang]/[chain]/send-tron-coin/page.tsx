@@ -1079,7 +1079,6 @@ useEffect(() => {
               </div>
 
               {/* otp verification */}
-
               {verifiedOtp ? (
                 <div className="hidden w-full flex-row gap-2 items-center justify-center">
                   <Image
