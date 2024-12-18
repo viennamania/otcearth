@@ -764,7 +764,7 @@ useEffect(() => {
                     }}
                     theme={"light"}
                     connectButton={{
-                      label: "Sign in with OTC Wallet",
+                      label: "Sign in with Wallet",
                     }}
                     connectModal={{
                       size: "wide", 
