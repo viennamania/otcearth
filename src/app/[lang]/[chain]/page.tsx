@@ -1218,14 +1218,14 @@ export default function Index({ params }: any) {
 
 
 
-        <div className="mt-5 w-full flex flex-col xl:flex-row items-center xl:items-stretch justify-center gap-5 mb-10">
+        <div className="mt-5 w-full flex flex-col xl:flex-row items-center xl:items-stretch justify-between gap-5 mb-10">
               
               {userCode && (
                 <div
                   className="
                   flex flex-col
                   
-                  border-1 border-gray-200
+                  border border-zinc-800
 
                   p-5 rounded-lg text-center
                   w-full xl:w-1/2
@@ -1611,7 +1611,7 @@ export default function Index({ params }: any) {
               {/* My Nickname */}
               <div className="w-full flex flex-col p-5 rounded-lg text-center
 
-                border-1 border-gray-200
+                border border-zinc-800
 
                 hover:shadow-lg
                 transition duration-300 ease-in-out
