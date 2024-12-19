@@ -1942,23 +1942,20 @@ export default function Index({ params }: any) {
 
                 </div>
 
-                {/*
-                알림1. 판매수수료는 3%입니다.
-                알림2. 판매수수료는 판매수량외 별도로 지갑에서 차감합니다.
-                */}
+
                 <div className="flex flex-col gap-2 items-start">
                   <div className="flex flex-row items-center gap-2">
                     {/* dot */}
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                     <p className="text-sm text-zinc-400">
-                      알림1. 판매수수료는 3%입니다.
+                      알림1. 3% 판매 수수료에는 에스크로 지갑으로 USDT를 전송하는 데 필요한 가스비(TRX)가 포함되며, 이는 USDT 지갑에서 자동으로 차감됩니다.
                     </p>
                   </div>
                   <div className="flex flex-row items-center gap-2">
                     {/* dot */}
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                     <p className="text-sm text-zinc-400">
-                      알림2. 판매수수료는 판매수량외 별도로 지갑에서 차감합니다.
+                      알림2. 판매 수수료는 판매 금액과 별도로 차감됩니다. 구매 시에는 가스비가 차감되지 않으며, 다른 지갑으로 전송할 경우 가스비(TRX)가 USDT 지갑에서 자동으로 차감됩니다.
                     </p>
                   </div>
                 </div>

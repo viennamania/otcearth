@@ -2050,6 +2050,14 @@ function ThirdwebResources() {
   );
 }
 
+/*
+1. P2E GAME 배너:
+   - 사이트 사용 방법을 설명하는 "사용 방법" 페이지로 연결.
+2. NFT MARKET 배너:
+   - 텔레그램 기반 고객 지원 센터로 연결.
+3. DEFI APPS 배너:
+   - 카카오톡 기반 고객 지원 센터로 연결.
+*/
 
 function MarketResources() {
   return (
@@ -2057,24 +2065,24 @@ function MarketResources() {
 
       <ArticleCard
         avatar="/icon-game.png"
-        title="P2E Game"
+        title="사용 방법"
         href="/"
-        description="Play to Earn games with USDT rewards"
+        description="How to use the OTC Wallet"
       />
 
   
       <ArticleCard
-        avatar="/icon-nft.png"
-        title="NFT Marketplace"
+        avatar="/logo-telegram.webp"
+        title="고객 지원 센터"
         href="/"
-        description="Trade NFTs with USDT"
+        description="Telegram-based customer support center"
       />
 
       <ArticleCard
-        avatar="/icon-defi.png"
-        title="DeFi Apps"
+        avatar="/logo-kakao.png"
+        title="고객 지원 센터"
         href="/"
-        description="DeFi applications with USDT"
+        description="KakaoTalk-based customer support center"
       />
 
     </div>
@@ -2099,7 +2107,11 @@ function ArticleCard(props: {
 
       //target="_blank"
 
-      className="flex flex-col border border-zinc-800 p-4 rounded-lg hover:bg-zinc-900 transition-colors hover:border-zinc-700"
+      className="flex flex-col border border-zinc-800 p-4 rounded-lg
+       hover:bg-zinc-800 hover:border-zinc-700
+       transition-colors duration-300 ease-in-out
+        transform hover:-translate-y-1
+      "
     >
 
       <div className="flex justify-center">
@@ -2119,7 +2131,11 @@ function ArticleCard(props: {
       </div>
 
       <article>
-        <h2 className="text-lg font-semibold mb-2">{props.title}</h2>
+        <h2 className="text-lg font-semibold mb-2
+          hover:text-yellow-500
+        ">
+          {props.title}
+        </h2>
         <p className="text-sm text-zinc-400">{props.description}</p>
       </article>
     </a>

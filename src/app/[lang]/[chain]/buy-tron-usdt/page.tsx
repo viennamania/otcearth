@@ -1602,7 +1602,7 @@ export default function Index({ params }: any) {
 
                           <article
                               //key={index}
-                              className={` w-96 xl:w-full h-full relative
+                              className={`xl:w-full h-full relative
                                 ${item.walletAddress === address ? 'border-green-500' : 'border-red-600'}
 
                                 ${item.status === 'accepted' || item.status === 'paymentRequested' ? 'border-red-600' : 'border-gray-200'}
@@ -1934,11 +1934,22 @@ export default function Index({ params }: any) {
 
                       
 
-                              <div className="mt-4 flex flex-col items-start text-sm ">
-                                <span className="text-white">{Payment}: {Bank_Transfer}</span>
-                                <span className="text-zinc-400">{item.seller?.bankInfo.bankName}</span>
-                                <span className="text-zinc-400">{item.seller?.bankInfo.accountNumber}</span>
-                                <span className="text-zinc-400">{item.seller?.bankInfo.accountHolder}</span>
+                              <div className="mt-4 flex flex-col gap-2 items-start text-sm ">
+                                <span className="text-green-500 font-semibold">
+                                  {Payment}: {Bank_Transfer}
+                                </span>
+
+                                <div className="flex flex-col xl:flex-row gap-2 items-start">
+                                  <span className="text-zinc-400">
+                                    {item.seller?.bankInfo.bankName}
+                                    </span>
+                                  <span className="text-zinc-400">
+                                    {item.seller?.bankInfo.accountNumber}
+                                    </span>
+                                  <span className="text-zinc-400">
+                                    {item.seller?.bankInfo.accountHolder}
+                                  </span>
+                                </div>
                               </div>
 
 
