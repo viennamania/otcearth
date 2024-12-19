@@ -1015,7 +1015,6 @@ export default function Index({ params }: any) {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            lang: params.lang,
             chain: params.chain,
             walletAddress: address,
             searchMyOrders: searchMyOrders
@@ -1470,7 +1469,6 @@ export default function Index({ params }: any) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          lang: params.lang,
           chain: params.chain,
           walletAddress: address,
           searchMyOrders: searchMyOrders
@@ -1518,7 +1516,7 @@ export default function Index({ params }: any) {
     return () => clearInterval(interval);
     
 
-  }, [address, searchMyOrders, params.lang, params.chain
+  }, [address, searchMyOrders, params.chain
     , sellOrdering
     , cancellings
     , escrowing
