@@ -1043,6 +1043,7 @@ export default function Index({ params }: any) {
                 <button
                   onClick={() => {
                     confirm("지갑 연결을 해제하시겠습니까?") && activeWallet?.disconnect();
+                    //activeWallet?.disconnect();
                   }}
                   className="bg-zinc-800 text-white p-2 rounded-lg text-xs xl:text-lg"
                 >
@@ -1424,6 +1425,7 @@ export default function Index({ params }: any) {
                           {tronWalletAddress}
                         </p>
                         {/* qr code image */}
+                        {/*
                         <Canvas
                           text={address}
                           options={{
@@ -1437,6 +1439,7 @@ export default function Index({ params }: any) {
                             },
                           }}
                         />
+                        */}
                       </div>
                       
                       {/* copy button */}
