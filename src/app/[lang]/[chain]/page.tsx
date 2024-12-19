@@ -1223,7 +1223,11 @@ export default function Index({ params }: any) {
               {userCode && (
                 <div
                   className="
-                  flex flex-col bg-yellow-500 p-5 rounded-lg text-center
+                  flex flex-col
+                  
+                  border-1 border-gray-200
+
+                  p-5 rounded-lg text-center
                   w-full xl:w-1/2
                   hover:shadow-lg
                   transition duration-300 ease-in-out
@@ -1308,7 +1312,7 @@ export default function Index({ params }: any) {
 
 
                       {/* floating point number to fixed 5 and text size small */}
-                    <div className="text-4xl font-semibold text-zinc-100">
+                    <div className="text-4xl font-semibold text-zinc-800">
                       {Number(usdtBalance).toFixed(2)}
                     </div>
                     <p className="w-12 text-sm text-gray-600">USDT</p>
@@ -1348,7 +1352,7 @@ export default function Index({ params }: any) {
                         height={35}
                         className="rounded-lg w-8 h-8 xl:w-10 xl:h-10"
                       />
-                      <div className="text-4xl font-semibold text-zinc-100">
+                      <div className="text-4xl font-semibold text-zinc-800">
                         {Number(tronBalance).toFixed(2)}
                       </div>
                       <p className="w-12 text-sm text-gray-600">TRX</p>
@@ -1413,10 +1417,6 @@ export default function Index({ params }: any) {
         
 
                   <div className=" flex flex-col gap-2 justify-center items-center mt-10">
-
-
-
-
 
                       {/* tronWalletAddress and qrcode for tronWalletAddress */}
                       <div className="flex flex-col gap-2 items-center">
@@ -1610,7 +1610,9 @@ export default function Index({ params }: any) {
 
               {/* My Nickname */}
               <div className="w-full flex flex-col p-5 rounded-lg text-center
-                bg-green-500
+
+                border-1 border-gray-200
+
                 hover:shadow-lg
                 transition duration-300 ease-in-out
                 transform hover:-translate-y-1
@@ -1657,7 +1659,7 @@ export default function Index({ params }: any) {
 
                   <div className="mt-4 flex flex-row gap-2 justify-center items-center">
 
-                    <h2 className="text-3xl font-semibold text-zinc-100">
+                    <h2 className="text-4xl font-semibold text-zinc-800">
                       {nickname}
                     </h2>
                     {userCode && (
@@ -2108,7 +2110,7 @@ function ArticleCard(props: {
       //target="_blank"
 
       className="flex flex-col border border-zinc-800 p-4 rounded-lg
-       hover:bg-zinc-800 hover:border-zinc-700
+       hover:bg-zinc-800 hover:border-zinc-700 hover:text-yellow-500
        transition-colors duration-300 ease-in-out
         transform hover:-translate-y-1
       "
@@ -2131,9 +2133,7 @@ function ArticleCard(props: {
       </div>
 
       <article>
-        <h2 className="text-lg font-semibold mb-2
-          hover:text-yellow-500
-        ">
+        <h2 className="text-lg font-semibold mb-2">
           {props.title}
         </h2>
         <p className="text-sm text-zinc-400">{props.description}</p>

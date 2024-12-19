@@ -21,7 +21,13 @@
 		@apply bg-zinc-950 text-neutral-200;
 		*/
 
+		/*
 		@apply bg-white text-black;
+		*/
+
+		/* background-color: #1a202c; */
+		background-color: #f9fafb;
+
 
 	}
 }
