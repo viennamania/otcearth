@@ -2358,7 +2358,7 @@ export default function Index({ params }: any) {
 
 
                                             {/* input sms receiver mobile number */}
-
+                                            {/*
                                             {address && agreementForTrade[index] && (
                                               <div className="mt-8 flex flex-row items-center justify-start gap-2">
 
@@ -2378,6 +2378,7 @@ export default function Index({ params }: any) {
                                                 </div>
                                               </div>
                                             )}
+                                            */}
 
 
 

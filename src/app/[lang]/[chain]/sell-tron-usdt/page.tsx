@@ -3384,7 +3384,11 @@ export default function Index({ params }: any) {
    
 
                                 item.walletAddress === address &&
-                                (item.status === 'accepted' || item.status === 'paymentRequested') ? (
+                                (item.status === 'accepted'
+                                  || item.status === 'paymentRequested'
+                                  || item.status === 'paymentConfirmed'
+                                  || item.status === 'cancelled'
+                                ) ? (
 
                                   <div className="flex flex-row items-center gap-2">
                                     <span
