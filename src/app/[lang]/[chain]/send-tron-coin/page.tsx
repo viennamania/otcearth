@@ -725,15 +725,11 @@ useEffect(() => {
             </div>
 
             {/* my TRX balance */}
-            <div className="w-full flex flex-col gap-2 items-start">
-
-
-              <div className="w-full flex flex-col xl:flex-row items-start justify-between gap-3">
-
-                {/* my TRX balance */}
-                <div className="w-full flex flex-col xl:flex-row items-start gap-3">
-                  
-                  <div className="flex flex-col gap-2 items-start">
+            <div className="w-full flex flex-col xl:flex-row gap-2 items-start justify-between">
+  
+                  <div className="w-full flex flex-col gap-2 items-start
+                    border border-zinc-400 rounded-md p-2
+                  ">
                     
                     <div className='flex flex-row items-center gap-2'>
                       {/* dot icon */}
@@ -820,14 +816,6 @@ useEffect(() => {
                     </div>
 
                   ) }
-
-
-
-                </div>
-
-              </div>
-
-
 
             </div>
 
