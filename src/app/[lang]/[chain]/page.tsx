@@ -1635,8 +1635,6 @@ export default function Index({ params }: any) {
 
                   <p className="text-sm md:text-xl text-gray-600">{My_Nickname}</p>
 
-
-
                 </div>
     
                 
