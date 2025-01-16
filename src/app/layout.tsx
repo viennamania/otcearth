@@ -87,15 +87,12 @@ export default function RootLayout({
 
 
       <body className={inter.className}>
-
-
-
         <ThirdwebProvider>
-
           <Toaster />
           {children}
         </ThirdwebProvider>
       </body>
+      
     </html>
   );
 }
